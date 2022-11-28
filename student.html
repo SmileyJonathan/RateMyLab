@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="student.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300400,500,600,700,800,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/6df089f401.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="content">
+      <div class="img-container">
+        <img src="RateMyLabassets/Logo.png" alt="Georgia State University" />
+      </div>
+      <h1>Student</h1>
+      <p>Please enter lab information</p>
+
+      <label>Select Lab CRN</label>
+
+      <select name="CRN">
+        <option disabled selected value>-- select an option --</option>
+        <option value="89514">89514</option>
+      </select>
+
+      <p id="orSpanp"><span id="orSpan">or</span></p>
+
+      <label>Select Course</label>
+
+      <select id="crnSelect" name="Course">
+        <option disabled selected value>-- select an option --</option>
+        <option value="CHEM 1211K">CHEM 1211K</option>
+      </select>
+
+      <label>Select Section Number</label>
+
+      <select name="Section Number">
+        <option disabled selected value>-- select an option --</option>
+        <option value="064">064</option>
+      </select>
+
+      <a href="rateMyLab.html" class="button">Rate My Lab</a>
+    </div>
+  </body>
+</html>
