@@ -38,6 +38,25 @@ hr{
     padding: 25px 30px;
 }
 
+.date-container p{
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+#date{
+    border-radius: 30px;
+    padding: 15px;
+    border-color: 1 solid #A9AAAB;
+}
+
+
+.overall-rate{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+
 .scale-rate-container{
     display: block;
     margin: 0 auto;
@@ -114,6 +133,11 @@ hr{
 {
     background: transparent;
 
+}
+
+.difficulty-rate{
+    font-weight: 600;
+    font-size: 18px;
 }
 
 
@@ -208,7 +232,7 @@ hr{
 
 .comment-title{
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .instructions{
@@ -216,6 +240,11 @@ hr{
     font-size: 15px;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.comment-container textarea{
+    border-radius: 15px;
+    padding: 20px;
 }
 
 #addComment{
@@ -249,14 +278,14 @@ hr{
     padding: 25px 30px;
 }
 
-.tag-container :where(.tag-title, li, li i){
+.tag-container :where(li, li i){
     display: flex;
     align-items: center;
 }
 
 .tag-title{
     font-weight: 600;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .content{
@@ -270,7 +299,7 @@ hr{
     display: flex;
     padding: 7px;
     margin: 12px 0;
-    border-radius: 5px;
+    border-radius: 15px;
     border: 1px solid #A9AAAB;
 }
 
