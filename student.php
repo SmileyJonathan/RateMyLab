@@ -48,12 +48,17 @@ $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
 
 
   <body>
+    <form action="ratemylab.php" method="post">
     <div class="content">
       <div class="img-container">
         <img src="RateMyLabassets/Logo.png" alt="Georgia State University" />
       </div>
       <h1>Student</h1>
       <p>Please enter lab information</p>
+
+      <?php if (isset($_GET['error'])) { ?>
+      <p class="error"><?php echo $_GET['error']; ?></p>
+      <?php } ?>
 
       <label>Select Lab CRN</label>
 
@@ -91,7 +96,8 @@ $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
         <option disabled selected value>-- select an option --</option>
       </select>
 
-      <a href="rateMyLab.html" class="button">Rate My Lab</a>
+      <button type=submit id=rate>Rate My Lab</a>
     </div>
+  </form>
   </body>
 </html>
