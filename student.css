@@ -64,7 +64,7 @@ select{
      
 }
 
-.button{
+#rate {
     display: block;
     margin: 0 auto;
     color: #FFFFFF;
@@ -86,3 +86,19 @@ select{
 #crnSelect{
     margin-bottom: 35px;
 }
+
+.error{
+
+    background: #F2DEDE;
+ 
+    color: #0c0101;
+ 
+    padding: 10px;
+ 
+    width: 95%;
+ 
+    border-radius: 5px;
+ 
+    margin: 20px auto;
+ 
+ }
