@@ -123,7 +123,7 @@ $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
             <textarea name="body" id="body" cols="95" rows="25"></textarea>
           </div>
         </div>
-        <input type="Submit" id="addComment" value="submit" name="review"/>
+        <input type="Submit" id="addComment" value="Submit" name="review"/>
       </form>
     </div>
 

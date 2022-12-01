@@ -56,13 +56,10 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
 
                 echo "Logged in!";
 
-                $_SESSION['user_name'] = $row['user_name'];
+                $_SESSION['username'] = $row['username'];
+                $_SESSION['name'] = $row['instructor_name'];
 
-                $_SESSION['name'] = $row['name'];
-
-                $_SESSION['id'] = $row['id'];
-
-                header("Location: rateMyLab.html");
+                header("Location: professor_dash.php");
 
                 exit();
 

@@ -78,13 +78,13 @@ $_SESSION['course_name'] = $lab['course_name'];
     function getSort(val){
         switch(val) {
             case 'Date':
-                $sort = "date_submitted";
+                <?php $sort = "date_submitted"; ?>
                 break;
             case 'Rating':
-                $sort = "lab_rating";
+                <?php $sort = "lab_rating"; ?>
                 break;
             case 'Difficulty':
-                $sort = "difficulty";
+                <?php $sort = "difficulty"; ?>
                 break;
             default: 
         }
