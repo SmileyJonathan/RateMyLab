@@ -62,7 +62,7 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
 
                 $_SESSION['id'] = $row['id'];
 
-                header("Location: rateMyLab.html");
+                header("Location: admin-dash.html");
 
                 exit();
 
