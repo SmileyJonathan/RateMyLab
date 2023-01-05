@@ -39,30 +39,37 @@ $name = $_SESSION['name'];
         ?>
             var i = 0;
 
-            labDisplayContainer[i] = document.createElement('div');
-            labDisplayContainer[i].className = 'lab-display';
+              labDisplay = document.createElement('div');
+              labDisplay.className = 'lab-display';
 
-            //Contains info for and displays name of the lab
-            var labName = document.createElement('div');
-            labName.className = 'lab-name';
-            labName.innerHTML = "<?php> echo $lab['course_name'] ?> SECTION <?php> echo $lab['section_num'] ?>";
-            labDisplayContainer[i].appendChild(labName);
-        
-            //Contains info for and displays the rating of the lab
-            var labRating = document.createElement('div');
-            labRating.className = 'lab-rating';
-            labRating.innerHTML = "<?php> echo $lab['avg_rate'] ?>" 
-            labDisplayContainer[i].appendChild(labRating);
+              //Contains info for and displays name of the lab
+              var labName = document.createElement('div');
+              labName.className = 'lab-name';
+              labName.innerHTML = "<?php echo $lab['course_name'] ?> SECTION <?php echo $lab['section_num'] ?>";
+              labDisplay.appendChild(labName);
 
-            var labDifficulty = document.createElement('div');
-            labDifficulty.className = 'lab-difficulty';
-            labDifficulty.innerHTML = "<?php> echo $lab['avg_dif'] ?>";
-            labDisplayContainer[i].appendChild(labDifficulty);
+              //Contains info for and displays the rating of the lab
+              var labRating = document.createElement('div');
+              labRating.className = 'lab-rating';
+              labRating.innerHTML = "<?php echo $lab['avg_rate'] ?>";
+              labDisplay.appendChild(labRating);
+
+              var labDifficulty = document.createElement('div');
+              labDifficulty.className = 'lab-difficulty';
+              labDifficulty.innerHTML = "<?php echo $lab['avg_dif'] ?>";
+              labDisplay.appendChild(labDifficulty);
+
+              labDisplayContainer.appendChild(labDisplay);
 
         <?php endwhile; ?>
     }, false);
 
     </script>
+
+    <script
+      src="https://kit.fontawesome.com/6df089f401.js"
+      crossorigin="anonymous"
+    ></script>
 
   </head>
   <body>
@@ -80,7 +87,7 @@ $name = $_SESSION['name'];
           <img src="https://cdn.kastatic.org/ka-perseus-graphie/6fc87b09f1fd082b8939b6425bef6a1d5397e532.svg" alt="bar chart" id='bar-chart'>
           <img src="https://diagrammm.com/img/diagrams/pie-chart.svg" alt="pie chart" id='pie-charts'>
         </div>
-        <h2 id="latest-courses">Latest courses</h2>
+        <h2 id="latest-courses">Latest Courses</h2>
         
         <div class="lab-display-container">
         
