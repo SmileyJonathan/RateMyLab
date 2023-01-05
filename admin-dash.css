@@ -6,7 +6,7 @@
 body{
     font-family: 'Inter';
     /* color: white; */
-     background-image: url('gsuu.jpg');
+    /* background-image: url('gsuu.jpg'); */
     /* missing colon */
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -37,18 +37,18 @@ button{
     cursor: pointer;
 }
 
-#archive-button, #purge-button{
+#archive-button, #purge-button, #student-record-button {
     margin-top: 50px;
 }
 
-#student-record-button{
+#add-delete-button{
     margin-top: 25px;
 }
 
 .row{
    margin-top: 5%;
    display: flex;
-   justify-content: space-between;
+   justify-content: center;
 }
 
 .course-col{

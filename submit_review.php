@@ -77,7 +77,7 @@ if (isset($_POST['date']) && isset($_POST['scale1']) && isset($_POST['scale2']) 
     
     }
     else{
-        header("Location: form.php?error=Please fill in all parts of the review");
+        header("Location: ratemylab.php?error=Please fill in all parts of the review");
 
         exit();
 
