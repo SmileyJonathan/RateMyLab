@@ -92,7 +92,7 @@ $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
 
       <label>Select Section Number</label>
 
-      <select id = "sectionSelect" name="Section Number">
+      <select id = "sectionSelect" name="Section">
         <option disabled selected value>-- select an option --</option>
       </select>
 

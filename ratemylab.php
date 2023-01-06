@@ -43,19 +43,19 @@ function validate($data){
 }
 if (!empty($_POST['CRN'])) {
     $lab_crn = validate($_POST['CRN']);
-    $_SESSION['lab_crn'] = $lab_crn;
     $query = "SELECT * FROM labs WHERE lab_crn= '$lab_crn'";
     $result = mysqli_query($con, $query);
     $lab = mysqli_fetch_assoc($result);
 }
-else if (!empty($_POST['Course']) && !empty($_POST['Section Number'])) {
+else if (!empty($_POST['Course']) && !empty($_POST['Section'])) {
     $course_name = validate($_POST['Course']);
-    $section_num = validate($_POST['Section Number']);
+    $section_num = validate($_POST['Section']);
     $_SESSION['course_name'] = $course_name;
     $_SESSION['section_num'] = $section_num;
     $query = "SELECT * FROM labs WHERE course_name= '$course_name' AND section_num= '$section_num'";
     $result = mysqli_query($con, $query);
     $lab = mysqli_fetch_assoc($result);
+
 }
 else {
     header("Location: student.php?error=Select an option");
@@ -65,6 +65,8 @@ else {
 $sort = "date_submitted";
 
 $_SESSION['lab_crn'] = $lab['lab_crn'];
+
+$lab_crn = $_SESSION['lab_crn'];
 
 $_SESSION['section_num'] = $lab['section_num'];
 
@@ -135,7 +137,7 @@ $_SESSION['course_name'] = $lab['course_name'];
         <div class="num-ratings-sort">
             <div class="num">
                 <?php
-                    $query = "SELECT COUNT(*) FROM reviews WHERE lab_crn= '$lab_crn'";
+                    $query = "SELECT COUNT(*) FROM reviews WHERE lab_crn= $lab_crn";
                     $result = mysqli_query($con, $query);
                     $count = mysqli_fetch_assoc($result);
                     echo $count['COUNT(*)'];
@@ -145,9 +147,9 @@ $_SESSION['course_name'] = $lab['course_name'];
                 <label>Sort: </label>
 
                 <select name="sort" onchange="getSort(this.value)">
-                     <option value="Date">date</option>
-                     <option value="Rating">rating</option>
-                     <option value="Difficulty">difficulty</option>
+                     <option value="Date">Date</option>
+                     <option value="Rating">Rating</option>
+                     <option value="Difficulty">Difficulty</option>
                 </select>
             </div>
         </div>
@@ -159,7 +161,6 @@ $_SESSION['course_name'] = $lab['course_name'];
 		    while ($review = mysqli_fetch_array($all_reviews,MYSQLI_ASSOC)):;
 	  	?>	
             <div id="main-container">
-                <!-- comment this out if using local storage and js -->
                 <div class='student-rating-container'>
                     <div class='left-panel'>
                         <div class='student-rating'>
