@@ -33,9 +33,9 @@ $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
 
 </head>
 
-<form action="ratemylab.php" id="rateForm">
-
 <?php
+
+//$sort = "date_submitted";
 
 $lab_crn = $_SESSION['lab_crn'];
 $query = "SELECT * FROM labs WHERE lab_crn= '$lab_crn'";
@@ -44,24 +44,32 @@ $lab = mysqli_fetch_assoc($result);
 
 ?>
 
-
+<!--
 <script type="text/javascript">
     function getSort(val){
-        switch(val) {
-            case 'Date':
-                <?php $sort = "date_submitted"; ?>
-                break;
-            case 'Rating':
-                <?php $sort = "lab_rating"; ?>
-                break;
-            case 'Difficulty':
-                <?php $sort = "difficulty"; ?>
-                break;
-            default: 
+      $.ajax({
+        type: "POST",
+        url: "sort.php",
+        data: "sort=" + val
         }
-        document.getElementById("rateForm").submit();
+      })
     }
+  </script>
+
+<script type="text/javascript">
+    function changeSort(val) {
+        getSort(val);
+        document.getElementById("reviews").innerHTML = "<p><?php echo $sort ?></p>";
+    }
+    
 </script>
+
+<script type="text/javascript">
+window.onload = function(){
+    changeSort(document.getElementById("sort").value);
+}
+</script>
+-->
 
 <body>
     <section class="header">
@@ -114,9 +122,9 @@ $lab = mysqli_fetch_assoc($result);
             </div>
             <div class="sort-container">
                 <label>Sort: </label>
-                <form action="ratemylab.php" method="post">
-                <select name="sort" onchange="getSort(this.value)">
-                     <option value="Date">Date</option>
+                <!-- <select name="sort" id="sort" onchange="changeSort(this.value)"> -->
+                <select name="sort" id="sort"">
+                     <option selected value="Date">Date</option>
                      <option value="Rating">Rating</option>
                      <option value="Difficulty">Difficulty</option>
                 </select>
@@ -125,8 +133,10 @@ $lab = mysqli_fetch_assoc($result);
         </div>
 
         <hr>
+        <section id="reviews">
         <?php
-            $sql = "SELECT * FROM reviews WHERE lab_crn=$lab_crn ORDER BY $sort";
+            /** $sql = "SELECT * FROM reviews WHERE lab_crn=$lab_crn ORDER BY $sort"; */
+            $sql = "SELECT * FROM reviews WHERE lab_crn=$lab_crn";
             $all_reviews = mysqli_query($con, $sql);
 		    while ($review = mysqli_fetch_array($all_reviews,MYSQLI_ASSOC)):;
 	  	?>	
@@ -156,10 +166,10 @@ $lab = mysqli_fetch_assoc($result);
                 </div>
             </div>
             <?php endwhile; ?>
+        </section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="script.js" type="text/javascript"></script>
     </section>
 </body>
-</form>
 </html>
