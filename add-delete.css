@@ -20,7 +20,7 @@ h1{
 }
 
 label{
-    margin-left: 35%;
+    margin-left: 30%;
     font-weight: bold;
 }
 
@@ -73,43 +73,37 @@ input{
 
 p{
     text-align: center;
+    font-weight: bold;
 }
 
-#archive-button, #purge-button, #student-record-button {
-    margin-top: 50px;
-}
+.error{
 
-#add-delete-button{
-    margin-top: 25px;
-}
+    background: #F2DEDE;
+ 
+    color: #0c0101;
+ 
+    padding: 10px;
+ 
+    width: 95%;
+ 
+    border-radius: 5px;
+ 
+    margin: 20px auto;
+ 
+ }
 
-.row{
-   margin-top: 5%;
-   display: flex;
-   justify-content: center;
-}
+ .success{
 
-.course-col{
-    flex-basis: 31%;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
-    padding: 20px 50px;
-    margin-left: 50px;
-    margin-right: 50px;
-    box-sizing: border-box;
-    text-align: center;
-}
-
-h3{
-    
-    font-family: 'Inter';
-    font-weight: 700;
-    margin: 35px 0;
-    font-size: 22px;
-}
-
-.course-col p{
-    font-family: 'Inter';
-    font-weight: 400;
-    line-height: 25px;
+    background: #dff2de;
+ 
+    color: #0c0101;
+ 
+    padding: 10px;
+ 
+    width: 95%;
+ 
+    border-radius: 5px;
+ 
+    margin: 20px auto;
+ 
 }

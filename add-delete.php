@@ -36,12 +36,14 @@ session_start();
       crossorigin="anonymous"
     ></script>
   </head>
+
   
   <script type="text/javascript">
     function changePage(val){
         switch(val){
             case "Add":
-                document.body.innerHTML= "<nav>"
+                document.body.innerHTML= "<form action=\"add.php\" method=\"post\">"
+                                        + "<nav>"
                                         +   "<a href=\"home.html\">"
                                         +       "<img src=\"RateMyLabassets/Logo.png\" alt=\"Georgia State University\" />"
                                         +   "</a>"
@@ -77,19 +79,21 @@ session_start();
                                         +"<input id=\"instructor\" name=\"Instructor\" type=\"text\"></input>"
                                         +"<label>Lab CRN</label>"
                                         +"<input id=\"crn\" name=\"CRN\" type=\"number\" min=\"10000\"max=\"99999\"></input>"
-                                        +"<button type=submit id=enter>Submit</a>";
+                                        +"<button type=submit id=enter>Submit</a>"
+                                        +"</form>";
 
             break;
             case "Delete":
-                document.body.innerHTML= "<nav>"
+                document.body.innerHTML= "<form action=\"delete.php\" method=\"post\">"
+                                        +"<nav>"
                                         +   "<a href=\"home.html\">"
                                         +       "<img src=\"RateMyLabassets/Logo.png\" alt=\"Georgia State University\" />"
                                         +   "</a>"
                                         +"</nav>"
                                         +"<h1>Add or Delete</h1>"
                                         +"<select name=\"add-delete\" onchange=\"changePage(this.value)\">"
-                                        +"  <option selected value>Delete</option>"
                                         +"  <option value=\"Add\">Add</option>"
+                                        +"  <option selected value>Delete</option>"
                                         +"</select>"
                                         +"<p>Please choose a lab to delete</p>"
                                         +"<select name=\"Lab\">"
@@ -100,7 +104,8 @@ session_start();
                                         +"  </option>"
                                         +"  <?php endwhile; ?>"
                                         +"</select>"
-                                        +"<button type=submit id=enter>Submit</a>";
+                                        +"<button type=submit id=enter>Submit</a>"
+                                        +"</form>";
             break;
             default:
         }
@@ -113,6 +118,14 @@ session_start();
         <img src="RateMyLabassets/Logo.png" alt="Georgia State University" />
       </a>
     </nav>
+
+    <?php if (isset($_GET['error'])) { ?>
+      <p class="error"><?php echo $_GET['error']; ?></p>
+    <?php } ?>
+
+    <?php if (isset($_GET['success'])) { ?>
+      <p class="success"><?php echo $_GET['success']; ?></p>
+    <?php } ?>
 
     <h1>Add or Delete</h1>
     <select name="add-delete" onchange="changePage(this.value)">
