@@ -1,4 +1,7 @@
 <?php
+
+session_start(); 
+
 $host="127.0.0.1";
 $port=3306;
 $socket="";
@@ -8,6 +11,7 @@ $dbname="ratemylab";
 
 $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
 	or die ('Could not connect to the database server' . mysqli_connect_error());
+
 ?>
 
 <!DOCTYPE html>
@@ -28,53 +32,17 @@ $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
 
 </head>
 
+<form action="ratemylab.php" id="rateForm">
+
 <?php
-  
-session_start();
-function validate($data){
-
-    $data = trim($data);
- 
-    $data = stripslashes($data);
- 
-    $data = htmlspecialchars($data);
- 
-    return $data;
-}
-if (!empty($_POST['CRN'])) {
-    $lab_crn = validate($_POST['CRN']);
-    $query = "SELECT * FROM labs WHERE lab_crn= '$lab_crn'";
-    $result = mysqli_query($con, $query);
-    $lab = mysqli_fetch_assoc($result);
-}
-else if (!empty($_POST['Course']) && !empty($_POST['Section'])) {
-    $course_name = validate($_POST['Course']);
-    $section_num = validate($_POST['Section']);
-    $_SESSION['course_name'] = $course_name;
-    $_SESSION['section_num'] = $section_num;
-    $query = "SELECT * FROM labs WHERE course_name= '$course_name' AND section_num= '$section_num'";
-    $result = mysqli_query($con, $query);
-    $lab = mysqli_fetch_assoc($result);
-
-}
-else {
-    header("Location: student.php?error=Select an option");
-    exit();
-}   
-
-$sort = "date_submitted";
-
-$_SESSION['lab_crn'] = $lab['lab_crn'];
 
 $lab_crn = $_SESSION['lab_crn'];
-
-$_SESSION['section_num'] = $lab['section_num'];
-
-$_SESSION['instructor_name'] = $lab['instructor_name'];
-
-$_SESSION['course_name'] = $lab['course_name'];
+$query = "SELECT * FROM labs WHERE lab_crn= '$lab_crn'";
+$result = mysqli_query($con, $query);
+$lab = mysqli_fetch_assoc($result);
 
 ?>
+
 
 <script type="text/javascript">
     function getSort(val){
@@ -90,11 +58,11 @@ $_SESSION['course_name'] = $lab['course_name'];
                 break;
             default: 
         }
+        document.getElementById("rateForm").submit();
     }
 </script>
 
 <body>
-
     <section class="header">
         <nav>
           <a href="home.html">
@@ -111,8 +79,8 @@ $_SESSION['course_name'] = $lab['course_name'];
               </div>
         </div>
         
-        <?php if (isset($_GET['success'])) { ?>
-            <p class="success"><?php echo $_GET['success']; ?></p>
+        <?php if (isset($_GET['error'])) { ?>
+            <p class="success"><?php echo $_GET['error']; ?></p>
         <?php } ?>
 
         <div class="lab-course">
@@ -145,12 +113,13 @@ $_SESSION['course_name'] = $lab['course_name'];
             </div>
             <div class="sort-container">
                 <label>Sort: </label>
-
+                <form action="ratemylab.php" method="post">
                 <select name="sort" onchange="getSort(this.value)">
                      <option value="Date">Date</option>
                      <option value="Rating">Rating</option>
                      <option value="Difficulty">Difficulty</option>
                 </select>
+                </form>
             </div>
         </div>
 
@@ -191,4 +160,5 @@ $_SESSION['course_name'] = $lab['course_name'];
     <script src="script.js" type="text/javascript"></script>
     </section>
 </body>
+</form>
 </html>

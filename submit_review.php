@@ -71,16 +71,23 @@ if (isset($_POST['date']) && isset($_POST['scale1']) && isset($_POST['scale2']) 
         WHERE reviews.lab_crn = labs.lab_crn)";
         $result = mysqli_query($con, $update_query2);
 
-        header("Location: student.php?error=Review submitted");
+        header("Location: ratemylab.php?error=Review submitted");
 
         exit();
     
     }
     else{
-        header("Location: ratemylab.php?error=Please fill in all parts of the review");
+        header("Location: form.php?error=Please fill in all parts of the review");
 
         exit();
 
     }
+
+}
+
+else{
+    header("Location: form.php?error=Please fill in all parts of the review");
+
+    exit();
 
 }

@@ -174,5 +174,20 @@ select{
     margin-right: 50px;
 }
 
+.success{
+
+    background: #dff2de;
+ 
+    color: #0c0101;
+ 
+    padding: 10px;
+ 
+    width: 95%;
+ 
+    border-radius: 5px;
+ 
+    margin: 20px auto;
+ 
+}
 
 

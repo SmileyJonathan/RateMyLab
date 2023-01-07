@@ -11,6 +11,8 @@ $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
 
   $sql = "SELECT * FROM labs ORDER BY lab_crn ASC";
 	$all_labs = mysqli_query($con, $sql);
+
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +50,7 @@ $con = new mysqli($host, $user, $password, $dbname, $port, $socket)
 
 
   <body>
-    <form action="ratemylab.php" method="post">
+    <form action="slogin.php" method="post">
     <div class="content">
       <div class="img-container">
         <img src="RateMyLabassets/Logo.png" alt="Georgia State University" />
