@@ -82,7 +82,7 @@ $name = $_SESSION['name'];
         </div>
       </div>
       <div class="info-container">
-        <h1 id="prof-dash"> Welcome <?php echo $_SESSION['name'] ?>!</h1>
+        <h1 id="prof-dash"> Welcome <?php echo $name ?>!</h1>
         <div class="graphics-container">
           <img src="https://cdn.kastatic.org/ka-perseus-graphie/6fc87b09f1fd082b8939b6425bef6a1d5397e532.svg" alt="bar chart" id='bar-chart'>
           <img src="https://diagrammm.com/img/diagrams/pie-chart.svg" alt="pie chart" id='pie-charts'>
