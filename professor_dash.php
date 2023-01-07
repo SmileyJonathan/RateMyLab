@@ -59,6 +59,12 @@ $name = $_SESSION['name'];
               labDifficulty.innerHTML = "<?php echo $lab['avg_dif'] ?>";
               labDisplay.appendChild(labDifficulty);
 
+              var seeReviews = document.createElement('form');
+              seeReviews.action='seereviews.php';
+              seeReviews.method='post';
+              seeReviews.innerHTML="<button type=\"submit\">See reviews for this lab here</input>";
+              labDisplay.appendChild(seeReviews);
+
               labDisplayContainer.appendChild(labDisplay);
 
         <?php endwhile; ?>
