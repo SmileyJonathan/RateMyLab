@@ -54,9 +54,6 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
 
             if ($row['username'] === $uname && $row['password'] === $pass) {
 
-                echo "Logged in!";
-
-                $_SESSION['username'] = $row['username'];
                 $_SESSION['name'] = $row['instructor_name'];
 
                 header("Location: professor_dash.php");
@@ -65,7 +62,7 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
 
             }else{
 
-                header("Location: professor.php?error=Incorect User name or password");
+                header("Location: professor.php?error=Incorrect User name or password");
 
                 exit();
 
@@ -73,7 +70,7 @@ if (isset($_POST['user']) && isset($_POST['password'])) {
 
         }else{
 
-            header("Location: professor.php?error=Incorect User name or password");
+            header("Location: professor.php?error=Incorrect User name or password");
 
             exit();
 
