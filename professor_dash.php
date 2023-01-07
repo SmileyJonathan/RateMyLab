@@ -37,7 +37,6 @@ $name = $_SESSION['name'];
         $all_labs = mysqli_query($con, $sql);
         while ($lab = mysqli_fetch_array($all_labs,MYSQLI_ASSOC)):;
         ?>
-            var i = 0;
 
               labDisplay = document.createElement('div');
               labDisplay.className = 'lab-display';
@@ -59,13 +58,50 @@ $name = $_SESSION['name'];
               labDifficulty.innerHTML = "<?php echo $lab['avg_dif'] ?>";
               labDisplay.appendChild(labDifficulty);
 
-              var seeReviews = document.createElement('form');
-              seeReviews.action='seereviews.php';
-              seeReviews.method='post';
-              seeReviews.innerHTML="<button type=\"submit\">See reviews for this lab here</input>";
-              labDisplay.appendChild(seeReviews);
-
               labDisplayContainer.appendChild(labDisplay);
+
+              var labReviewsHeader = document.createElement('h3');
+              labReviewsHeader.className = 'recent-reviews';
+              labReviewsHeader.innerHTML = "Recent Reviews";
+              labDisplayContainer.appendChild(labReviewsHeader);
+
+              <?php
+              $lab_crn = $lab['lab_crn'];
+              $query="SELECT * FROM reviews WHERE lab_crn='$lab_crn' ORDER BY date_submitted DESC";
+              $all_reviews = mysqli_query($con, $query);
+              for ($i = 0; $i < 3; $i++) {
+                if ($review = mysqli_fetch_array($all_reviews, MYSQLI_ASSOC)) {
+                  ?>
+                var mainContainer = document.createElement('div');
+                mainContainer.id = "main-container";
+                mainContainer.innerHTML = "<div class='student-rating-container'>"
+                                         +" <div class='left-panel'>"
+                                         +"   <div class='student-rating'>"
+                                         +"     <div class='student-rating-number'>"
+                                         +"       <?php echo $review['lab_rating']; ?>"
+                                         +"     </div>"
+                                         +"   </div>"
+                                         +" </div>"
+                                         +" <div class='right-panel'>"
+                                         +"   <div class='diff-date'>"
+                                         +"     <div class='difficulty'>"
+                                         +"       Difficulty: <?php echo $review['difficulty']; ?>"
+                                         +"     </div>"
+                                         +"     <div class='date'>"
+                                         +"     <?php echo $review['date_submitted']; ?>"
+                                         +"     </div>"
+                                         +"   </div>"
+                                         +"   <div class='student-comment'>"
+                                         +"     <?php echo $review['review']; ?>"
+                                         +"   </div>"
+                                         +" </div>"
+                                         +"</div>";
+              labDisplayContainer.appendChild(mainContainer);
+              <?php } else {
+                  break;
+                }
+              }
+              ?>
 
         <?php endwhile; ?>
     }, false);
@@ -89,10 +125,6 @@ $name = $_SESSION['name'];
       </div>
       <div class="info-container">
         <h1 id="prof-dash"> Welcome <?php echo $name ?>!</h1>
-        <div class="graphics-container">
-          <img src="https://cdn.kastatic.org/ka-perseus-graphie/6fc87b09f1fd082b8939b6425bef6a1d5397e532.svg" alt="bar chart" id='bar-chart'>
-          <img src="https://diagrammm.com/img/diagrams/pie-chart.svg" alt="pie chart" id='pie-charts'>
-        </div>
         <h2 id="latest-courses">Latest Courses</h2>
         
         <div class="lab-display-container">
