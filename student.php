@@ -26,6 +26,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+    <link rel="icon" href="favicon.ico">
     <script
       src="https://kit.fontawesome.com/6df089f401.js"
       crossorigin="anonymous"

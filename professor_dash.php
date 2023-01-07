@@ -25,7 +25,7 @@ $name = $_SESSION['name'];
     <link rel="stylesheet" href="professor_dash.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
+    <link rel="icon" href="favicon.ico">
 
     <script type="text/javascript"> 
     document.addEventListener('DOMContentLoaded', function() {
