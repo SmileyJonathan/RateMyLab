@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Inter';
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+	background-size: cover;
+}
+
+nav{
+    display: flex;
+    padding: 2% 4%;
+}
+
+h1{
+    text-align: center;
+}
+
+label{
+    margin-left: 35%;
+    font-weight: bold;
+}
+
+select{
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-color: #333333;
+    width: 30%;
+    border-radius: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 30px;
+}
+
+input{
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-color: #333333;
+    width: 30%;
+    border-radius: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 30px;
+}
+
+#enter{
+    display: block;
+    margin: 0 auto;
+    color: #FFFFFF;
+    font-family: 'Inter';
+    font-weight: 700;
+    border-radius: 15px;
+    padding: 15px 10px;
+    font-size: 15px;
+    background: #0039A6;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 30px;
+    width: 20%;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 50px;
+}
+
+p{
+    text-align: center;
+}
+
+#archive-button, #purge-button, #student-record-button {
+    margin-top: 50px;
+}
+
+#add-delete-button{
+    margin-top: 25px;
+}
+
+.row{
+   margin-top: 5%;
+   display: flex;
+   justify-content: center;
+}
+
+.course-col{
+    flex-basis: 31%;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    padding: 20px 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+h3{
+    
+    font-family: 'Inter';
+    font-weight: 700;
+    margin: 35px 0;
+    font-size: 22px;
+}
+
+.course-col p{
+    font-family: 'Inter';
+    font-weight: 400;
+    line-height: 25px;
+}
