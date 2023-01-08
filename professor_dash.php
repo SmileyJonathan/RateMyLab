@@ -46,17 +46,28 @@ $name = $_SESSION['name'];
               labName.className = 'lab-name';
               labName.innerHTML = "<?php echo $lab['course_name'] ?> SECTION <?php echo $lab['section_num'] ?>";
               labDisplay.appendChild(labName);
-
+              
+              var labRatingLabel = document.createElement('label');
+              labRatingLabel.innerHTML = "Avg. Rating";
+              labDisplay.appendChild(labRatingLabel);
+              
               //Contains info for and displays the rating of the lab
               var labRating = document.createElement('div');
               labRating.className = 'lab-rating';
+              labRating.id = 'lab-rating';
               labRating.innerHTML = "<?php echo $lab['avg_rate'] ?>";
               labDisplay.appendChild(labRating);
+
+
+              var labRatingLabel = document.createElement('label');
+              labRatingLabel.innerHTML = "Avg. Difficulty";
+              labDisplay.appendChild(labRatingLabel);
 
               var labDifficulty = document.createElement('div');
               labDifficulty.className = 'lab-difficulty';
               labDifficulty.innerHTML = "<?php echo $lab['avg_dif'] ?>";
               labDisplay.appendChild(labDifficulty);
+
 
               labDisplayContainer.appendChild(labDisplay);
 
